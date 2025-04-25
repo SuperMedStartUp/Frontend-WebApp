@@ -1,0 +1,21 @@
+<form [formGroup]="formGroup" (ngSubmit)="submitAppointment()">
+  <mat-form-field>
+    <mat-label>Reason</mat-label>
+    <input matInput formControlName="reason" placeholder="Reason" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Doctor</mat-label>
+    <mat-select formControlName="doctorName">
+      <mat-option *ngFor="let doctor of doctors" [value]="doctor.fullName">
+        {{doctor.fullName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput formControlName="date" placeholder="YYYY-MM-DD"
+           required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

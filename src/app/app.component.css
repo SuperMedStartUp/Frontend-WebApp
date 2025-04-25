@@ -1,0 +1,54 @@
+.content{
+  padding: 0;
+}
+
+mat-sidenav{
+  background-color: #EDF2FA;
+
+}
+.menu-item{
+  border-left: 5px solid;
+  border-left-color: rgba(0,0,0,0);
+}
+mat-sidenav-container {
+  height: 100vh;
+}
+
+.sidenav-header {
+  padding-top: 24px;
+  text-align: center;
+
+  > img {
+    border-radius: 100%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .header-text {
+    > h2 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+    > p {
+      margin: 0;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+mat-toolbar {
+  position:relative;
+  z-index:5;
+
+}
+.img-logo{
+  padding: 0 14px;
+}
+.toolbar-row{
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+.spacer{
+  flex:1;
+}
