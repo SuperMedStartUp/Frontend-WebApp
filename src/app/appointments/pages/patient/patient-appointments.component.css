@@ -1,33 +1,75 @@
+.appointment-card-table {
+  margin: 32px auto;
+  max-width: 1000px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
 
-mat-card{
-  margin: 2%;
-  background-color: #16213E;
+.card-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-color: #18243c;
 }
-button{
-  margin: 2px;
-}
-mat-card-title{
+
+.toolbar-title {
+  font-size: 1.25rem;
+  font-weight: 500;
   color: white;
-  margin: 1rem;
-  font-size: 2rem;
 }
 
-th{
-  background-color: #BDBDBD !important;
+.table-wrapper {
+  overflow-x: auto;
 }
-td{
-  background-color: #E0E0E0 !important;
+
+.appointment-table {
+  width: 100%;
+  min-width: 600px;
+  border-spacing: 0;
 }
+
+th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+}
+
+td {
+  background-color: #ffffff;
+  color: #444;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+button {
+  margin-left: 12px;
+}
+
+.spacer {
+  flex: 1;
+}
+
 mat-paginator {
   display: flex;
   justify-content: center;
-}
-mat-label{
-  color: white;
-  margin: 1rem;
-  font-size: 0.85rem;
-}
-.info-inputs{
-  display: flex; flex-direction: column; align-items: flex-start; padding-right: 50px
+  margin-top: 16px;
 }
 
+.custom-button {
+  background-color: #F5713D;
+  color: white;
+}
+
+.custom-button:hover {
+  background-color: #fa5525;
+}

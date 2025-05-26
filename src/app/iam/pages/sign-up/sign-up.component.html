@@ -1,85 +1,107 @@
-<div class="sign-up-content">
-  <mat-card>
+<div class="sign-up-container">
+  <mat-card class="sign-up-card">
     <mat-card-header>
-      <mat-card-title>Sign Up</mat-card-title>
-      <mat-card-subtitle>Please enter the required fields to sign up.</mat-card-subtitle>
+      <mat-card-title>
+        <div class="title-container">
+          <mat-icon>person_add</mat-icon>
+          Create Account
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle>Fill out the required fields to register</mat-card-subtitle>
     </mat-card-header>
+
     <mat-card-content>
-      <form [formGroup]="form" (submit)="onSubmit();">
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-          <mat-button-toggle (click)="doctorSelected()" value="bold">DOCTOR</mat-button-toggle>
-          <mat-button-toggle (click)="patientSelected()" value="bold">PATIENT</mat-button-toggle>
-          <mat-button-toggle (click)="consultantSelected()" value="bold">CONSULTANT</mat-button-toggle>
+      <form [formGroup]="form" (submit)="onSubmit()">
+        <mat-button-toggle-group name="role" class="role-toggle" appearance="legacy">
+          <mat-button-toggle (click)="doctorSelected()" value="doctor">DOCTOR</mat-button-toggle>
+          <mat-button-toggle (click)="patientSelected()" value="patient">PATIENT</mat-button-toggle>
+          <mat-button-toggle (click)="consultantSelected()" value="consultant">CONSULTANT</mat-button-toggle>
         </mat-button-toggle-group>
-        <mat-form-field>
-          <input matInput placeholder="Username" id="username" name="username" required formControlName="username">
-          <mat-error *ngIf="isInvalidControl(form, 'username')">{{ errorMessagesForControl(form, 'username')}}</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Password" id="password" name="password" required formControlName="password" type="password">
-          <mat-error *ngIf="isInvalidControl(form, 'password')">{{ errorMessagesForControl(form, 'password')}}</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="First Name" id="firstName" name="firstName" required formControlName="firstName">
-          <mat-error *ngIf="isInvalidControl(form, 'firstName')">{{ errorMessagesForControl(form, 'firstName')}}</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Last Name" id="lastName" name="lastName" required formControlName="lastName">
-          <mat-error *ngIf="isInvalidControl(form, 'lastName')">{{ errorMessagesForControl(form, 'lastName')}}</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Email" id="email" name="email" required formControlName="email" type="email">
-          <mat-error *ngIf="isInvalidControl(form, 'email')">{{ errorMessagesForControl(form, 'email')}}</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Phone Number" id="phone" name="phoneNumber" required formControlName="phoneNumber">
 
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Username</mat-label>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput formControlName="username" required>
+          <mat-error *ngIf="isInvalidControl(form, 'username')">{{ errorMessagesForControl(form, 'username') }}</mat-error>
         </mat-form-field>
-        <div *ngIf="getRole() === 1">
-          <form [formGroup]="formDoctor">
-            <mat-form-field>
-              <input matInput placeholder="Specialty" id="specialty" name="specialty" required formControlName="specialty">
 
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="License Number" id="licenseNumber" name="licenseNumber" required formControlName="licenseNumber">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput type="password" formControlName="password" required>
+          <mat-error *ngIf="isInvalidControl(form, 'password')">{{ errorMessagesForControl(form, 'password') }}</mat-error>
+        </mat-form-field>
 
-            </mat-form-field>
-          </form>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" required>
+          <mat-error *ngIf="isInvalidControl(form, 'firstName')">{{ errorMessagesForControl(form, 'firstName') }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" required>
+          <mat-error *ngIf="isInvalidControl(form, 'lastName')">{{ errorMessagesForControl(form, 'lastName') }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <mat-icon matPrefix>email</mat-icon>
+          <input matInput type="email" formControlName="email" required>
+          <mat-error *ngIf="isInvalidControl(form, 'email')">{{ errorMessagesForControl(form, 'email') }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Phone Number</mat-label>
+          <mat-icon matPrefix>phone</mat-icon>
+          <input matInput formControlName="phoneNumber" required>
+        </mat-form-field>
+
+        <!-- Campos específicos por rol -->
+        <div *ngIf="getRole() === 1" [formGroup]="formDoctor">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Specialty</mat-label>
+            <input matInput formControlName="specialty" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>License Number</mat-label>
+            <input matInput formControlName="licenseNumber" required>
+          </mat-form-field>
         </div>
-        <div *ngIf="getRole() === 2">
-          <form [formGroup]="formPatient">
-            <mat-form-field>
-              <input matInput placeholder="Street" id="street" name="street" required formControlName="street">
 
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Number" id="number" name="number" required formControlName="number">
-
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="City" id="city" name="city" required formControlName="city">
-
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Postal Code" id="postalCode" name="postalCode" required formControlName="postalCode">
-
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Country" id="country" name="country" required formControlName="country">
-
-            </mat-form-field>
-          </form>
+        <div *ngIf="getRole() === 2" [formGroup]="formPatient">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Street</mat-label>
+            <input matInput formControlName="street" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Number</mat-label>
+            <input matInput formControlName="number" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Postal Code</mat-label>
+            <input matInput formControlName="postalCode" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Country</mat-label>
+            <input matInput formControlName="country" required>
+          </mat-form-field>
         </div>
-        <div *ngIf="getRole() === 3">
-          <form [formGroup]="formConsultant">
-            <mat-form-field>
-              <input matInput placeholder="License Number" id="licenseNumberC" name="licenseNumberC" required formControlName="licenseNumberC">
 
-            </mat-form-field>
-          </form>
+        <div *ngIf="getRole() === 3" [formGroup]="formConsultant">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>License Number</mat-label>
+            <input matInput formControlName="licenseNumberC" required>
+          </mat-form-field>
         </div>
-        <button mat-raised-button color="primary" type="submit">Sign Up</button>
+
+        <button mat-raised-button color="primary" type="submit" class="full-width">
+          Sign Up
+        </button>
       </form>
     </mat-card-content>
   </mat-card>

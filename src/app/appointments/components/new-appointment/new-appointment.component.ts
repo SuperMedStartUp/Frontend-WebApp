@@ -5,6 +5,7 @@ import {AppointmentsService} from "../../services/appointments.service";
 import {DoctorService} from "../../../profiles/services/doctor.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
+
 @Component({
   selector: 'app-new-appointment',
   templateUrl: './new-appointment.component.html',

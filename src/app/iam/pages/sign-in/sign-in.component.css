@@ -1,6 +1,26 @@
-.sign-in-content {
+.sign-in-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+}
+
+.sign-in-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

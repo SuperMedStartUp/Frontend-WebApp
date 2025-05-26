@@ -45,8 +45,10 @@ import { NewAnalysisComponent } from './analysis/components/new-analysis/new-ana
 import { LaboratoryAnalysisComponent } from './analysis/pages/laboratory/laboratory-analysis.component';
 import { NewSampleComponent } from './samples/components/new-sample/new-sample.component';
 import { LaboratorySampleComponent } from './samples/pages/laboratory/laboratory-sample.component';
-import {MatDatepicker} from "@angular/material/datepicker";
+import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
 import { NewResultComponent } from './request-results/components/new-result/new-result.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -106,7 +108,11 @@ import { NewResultComponent } from './request-results/components/new-result/new-
     MatButtonToggleGroup,
     MatButtonToggle,
     MatFormField,
-    MatDatepicker
+    MatDatepicker,
+    MatDatepickerInput,
+    MatDatepickerToggle,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     BaseService,provideAnimationsAsync(), provideHttpClient(withInterceptors([authenticationInterceptor]))

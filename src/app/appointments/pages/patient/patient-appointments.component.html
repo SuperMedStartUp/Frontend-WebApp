@@ -1,29 +1,32 @@
-<mat-card>
-  <mat-card-title style="display: flex; justify-content: space-between; align-items: center;">
-    My Next Appointments
-    <button mat-raised-button color="primary" (click)="navigateToNew()">Schedule Appointment</button>
-  </mat-card-title>
+<mat-card class="appointment-card-table">
+  <mat-toolbar class="card-toolbar">
+    <span class="toolbar-title">My Next Appointments</span>
+    <span class="spacer"></span>
+    <button mat-raised-button class="custom-button" (click)="navigateToNew()">Schedule Appointment</button>
+  </mat-toolbar>
+
   <mat-card-content>
+    <div class="table-wrapper">
+      <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z4 appointment-table">
 
-    <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-sort-header mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="id">
-        <th mat-sort-header mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-      </ng-container>
+        <ng-container matColumnDef="date">
+          <th mat-sort-header mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="date">
-        <th mat-sort-header mat-header-cell *matHeaderCellDef>Day</th>
-        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
-      </ng-container>
+        <ng-container matColumnDef="reason">
+          <th mat-sort-header mat-header-cell *matHeaderCellDef>Reason</th>
+          <td mat-cell *matCellDef="let element">{{ element.reason }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="reason">
-        <th mat-sort-header mat-header-cell *matHeaderCellDef>Reason</th>
-        <td mat-cell *matCellDef="let element">{{element.reason}}</td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
   </mat-card-content>
 </mat-card>

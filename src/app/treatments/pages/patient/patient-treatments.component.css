@@ -1,48 +1,71 @@
-.principal_card{
-  position: marker;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.principal-card {
+  margin: 40px auto;
+  max-width: 1100px;
+  border-radius: 16px;
   background-color: #16213E;
-  width: 1000px;
-  height: 900px;
-  margin: 2%;
+  color: white;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.card-container-vertical{
+.principal-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.card-container-vertical {
   display: flex;
   flex-direction: column;
+  gap: 32px;
   align-items: center;
 }
 
-.principal-title{
-  color: white;
-  text-align: center;
-  padding-top: 15%;
-}
-
-.dates{
-  align-items: center;
-  color: white;
-  width: 870px;
-  height: 300px;
+.treatments-details {
+  width: 100%;
   background-color: #EDF2FA;
-}
-
-.treatments-details{
-  align-items: center;
-  color: white;
-  width: 870px;
-  height: 300px;
-  background-color: #EDF2FA;
-}
-
-.data-separation{
-  padding-bottom: 50px;
-  padding-top: 20px;
-}
-
-.treatments-details-title{
   color: black;
-  font-size: 15px;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.treatments-details-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.current-treatments {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.slider {
+  overflow-x: auto;
+  padding-top: 16px;
+}
+
+.card-container-horizontal {
+  display: flex;
+  gap: 24px;
+  min-width: fit-content;
+}
+
+.treatment-item {
+  min-width: 260px;
+  max-width: 300px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+
+.treatment-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
