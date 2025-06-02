@@ -1,18 +1,23 @@
 .principal_card{
-  position: marker;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: #16213E;
-  width: 1000px;
-  height: 1000px;
+  width: auto;
+  height: auto;
   margin: 2%;
+  max-width: 100vw;
+  min-height:  100vh;
+  overflow-x: auto;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 .current_treatments{
   color: white;
   width: 950px;
   height: 400px;
   background-color: #2E3F6E;
+  max-width: 100vw;
+  overflow-x: auto;
+  box-sizing: border-box;
 }
 
 .add_treatments{
@@ -60,7 +65,7 @@
 }
 
 .card-container-vertical{
-  display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
@@ -118,12 +123,19 @@ mat-form-field{
 }
 
 .card-container-horizontal{
-  display: grid;
-  width: 85%;
-  height: 950px;
+  display: flex;
+  height: auto;
+  width: 100%;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
   margin: auto;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 16px;
+  max-height: 300px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 p{
@@ -171,7 +183,3 @@ p{
    text-align: center;
 
  }
-
-
-
-

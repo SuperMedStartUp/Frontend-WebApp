@@ -1,4 +1,3 @@
-
 mat-card{
   margin: 2%;
   background-color: #16213E;
@@ -30,4 +29,3 @@ mat-label{
 .info-inputs{
   display: flex; flex-direction: column; align-items: flex-start; padding-right: 50px
 }
-
