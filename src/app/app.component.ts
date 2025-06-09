@@ -55,8 +55,8 @@ export class AppComponent {
           { path: '/home', title: 'Home', icon: 'home'},
           { path: '/doctor/:id/appointments'.replace(':id', userIdForPath.toString()), title: 'Appointments', icon:'calendar_today'},
           { path: '/doctor/:id/treatments-doctor'.replace(':id', userIdForPath.toString()), title: 'Treatments for patients', icon:'assignment'},
-          { path: '/doctor/:id/request-history'.replace(':id', userIdForPath.toString()), title: 'Request History', icon:'history'},
-          { path: '/doctor/:id/request-results'.replace(':id', userIdForPath.toString()), title: 'Request Results', icon: 'swap_vertical_circle'},
+          //{ path: '/doctor/:id/request-history'.replace(':id', userIdForPath.toString()), title: 'Request History', icon:'history'},
+          //{ path: '/doctor/:id/request-results'.replace(':id', userIdForPath.toString()), title: 'Request Results', icon: 'swap_vertical_circle'},
         ];
       })
 
@@ -69,7 +69,7 @@ export class AppComponent {
           { path: '/home', title: 'Home', icon: 'home'},
           { path: '/patient/:id/appointments'.replace(':id', userIdForPath.toString()), title: 'Appointments', icon:'calendar_today'},
           { path: '/patient/:id/treatments-patient'.replace(':id', userIdForPath.toString()), title: 'Treatments for patients', icon:'assignment'},
-          { path: '/patient/:id/request-results'.replace(':id', userIdForPath.toString()), title: 'Request Results', icon: 'swap_vertical_circle'},
+          //{ path: '/patient/:id/request-results'.replace(':id', userIdForPath.toString()), title: 'Request Results', icon: 'swap_vertical_circle'},
         ]
       })
 

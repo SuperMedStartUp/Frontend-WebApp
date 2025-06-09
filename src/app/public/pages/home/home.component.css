@@ -1,0 +1,63 @@
+.home-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.home-container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: #1976d2;
+  font-weight: 500;
+}
+
+.home-container p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  color: #444;
+}
+
+.quick-links {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.news-section, .resources-section {
+  margin-bottom: 24px;
+}
+
+mat-card-title {
+  font-size: 1.2rem;
+  color: #1976d2;
+  font-weight: 500;
+}
+
+mat-card-content ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+mat-card-content li {
+  margin-bottom: 6px;
+}
+
+mat-card-content a {
+  color: #1976d2;
+  text-decoration: none;
+  margin-right: 12px;
+}
+
+mat-card-content a:hover {
+  text-decoration: underline;
+}
+
+.welcome-image {
+  width:800px;
+  height:400px;
+  display:block;
+  margin:32px auto;
+}
