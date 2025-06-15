@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build -- --configuration=production"
+  publish = "dist/med-system-front-end"
+
+[[plugins]]
+  package = "@netlify/plugin-angular"  # ⚠️ NOTA: Este NO es angular-runtime
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
