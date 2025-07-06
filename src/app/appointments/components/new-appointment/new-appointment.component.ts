@@ -37,32 +37,38 @@ export class NewAppointmentComponent implements OnInit {
     });
   }
 
-  submitAppointment(){
-    for (let doctorToSelect of this.doctors){
+  submitAppointment() {
+    for (let doctorToSelect of this.doctors) {
       if (doctorToSelect.fullName === this.formGroup.value.doctorName) {
         this.doctorService.getByUniqueId(doctorToSelect.id).subscribe({
-          next: (response:any) => {
+          next: (response: any) => {
             this.doctorId = response.id;
-            const appointment={
+            const appointment = {
               date: this.formGroup.value.date,
               reason: this.formGroup.value.reason,
               doctorId: this.doctorId,
               patientId: this.patientId,
             };
-            this.appointmentsService.create(appointment).subscribe(response =>{
-              console.log(response);
-              alert('Appointment created successfully');
-              this.router.navigate([`patient/${this.patientId}/appointments`]);
-            },error => {
-              console.error(error);
+            this.appointmentsService.create(appointment).subscribe({
+              next: response => {
+                alert('Cita creada exitosamente');
+                this.router.navigate([`patient/${this.patientId}/appointments`]);
+              },
+              error: error => {
+                if (error.status === 401) {
+                  alert('Ya existe una cita para esa fecha y doctor. Por favor, elige otra fecha.');
+                } else {
+                  alert('Ya existe una cita para esa fecha y doctor. Por favor, elige otra fecha.');
+                }
+                console.error(error);
+              }
             });
           },
-          error: (error) =>{
+          error: (error) => {
             console.error(error);
           }
-        })
+        });
       }
     }
-
   }
 }

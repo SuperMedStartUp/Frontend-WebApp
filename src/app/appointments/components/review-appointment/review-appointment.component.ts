@@ -18,6 +18,7 @@ export class ReviewAppointmentComponent implements OnInit {
   patientId = -1;
   patientName = '';
 
+
   constructor(private router: Router, private route: ActivatedRoute, private appointmentsService: AppointmentsService,
               private patientService: PatientService, private doctorService: DoctorService, private authenticationService: AuthenticationService) {
   }

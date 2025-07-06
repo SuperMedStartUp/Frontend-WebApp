@@ -13,7 +13,7 @@ import {PatientService} from "../../../profiles/services/patient.service";
   styleUrl: './doctor-appointments.component.css'
 })
 export class DoctorAppointmentsComponent implements OnInit{
-  displayedColumns = ["id", "patientName", "date", "moreInfo"];
+  displayedColumns = ["id", "patientId", "patientName", "date", "moreInfo"];
   dataSource!: MatTableDataSource<Appointment>;
   appointments!: Appointment[];
   patientNamesMap: Map<number, string> = new Map<number, string>();

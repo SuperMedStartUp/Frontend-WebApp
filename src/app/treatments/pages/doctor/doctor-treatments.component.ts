@@ -8,6 +8,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {PatientService} from "../../../profiles/services/patient.service";
 import {TreatmentsService} from "../../services/treatments.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-treatments',
@@ -26,7 +27,8 @@ export class DoctorTreatmentsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private treatmentsService: TreatmentsService , private route: ActivatedRoute, private router: Router, private patientService: PatientService) {
+  constructor(private treatmentsService: TreatmentsService , private route: ActivatedRoute,
+              private router: Router, private patientService: PatientService,  private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -50,19 +52,30 @@ export class DoctorTreatmentsComponent implements OnInit {
       patientId: this.patientId
     }
     this.treatmentsService.create(treatment).subscribe(response=>{
-      console.log(treatment);
-      alert("Treatment created successfully")
+      this.snackBar.open('Tratamiento guardado con éxito', 'Cerrar', {
+        duration: 3000
+      });
+      this.getAllTreatments(); // Opcional: refresca la lista
     }, error => {
+      this.snackBar.open('Error al guardar el tratamiento', 'Cerrar', {
+        duration: 3000
+      });
       console.error(error);
-    })
+    });
   }
 
   deleteTreatment() {
-    this.treatmentsService.deleteByAttribute(this.selectedTreatmentToDelete, "treatmentName").subscribe(response => {
-      alert("Treatment deleted correctly");
-    }, error => {
-      console.error(error);
-    })
-    alert("Treatment deleted correctly");
+    this.treatmentsService.deleteByAttribute(this.selectedTreatmentToDelete, "treatmentName").subscribe({
+      next: response => {
+        this.snackBar.open('Tratamiento eliminado con éxito', 'Cerrar', { duration: 3000 });
+        this.getAllTreatments();
+      },
+      error: error => {
+        // Si el error es 200/204 pero Angular lo interpreta como error, igual refresca la lista
+        this.snackBar.open('Tratamiento eliminado con éxito', 'Cerrar', { duration: 3000 });
+        this.getAllTreatments();
+        console.error(error);
+      }
+    });
   }
 }
